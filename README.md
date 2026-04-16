@@ -1,32 +1,40 @@
-# portfolio
-my portfolio
-# Hi, I'm zriharrieeythedev! 👋
+# 🌐 My Portfolio Website
 
-### 🎓 BCA Student | 💻 Engine Dev | 🎮 Creative Technologist
-
-I focus on building immersive digital worlds through high-performance code and 3D art. I'm a big believer in **vibecoding**—merging technical precision with creative flow to turn logic into experience.
+Welcome to the repository for my personal portfolio! This site is designed to showcase my work in **Game Development**, **AI Integration**, and **3D Design**, all while maintaining a sleek, high-performance web experience.
 
 ---
 
-### 🔧 Tech Stack & Tools
-
-![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
-![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white)
-![Unreal Engine](https://img.shields.io/badge/unrealengine-%23313131.svg?style=for-the-badge&logo=unreal-engine&logoColor=white)
-![Blender](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white)
+### 🚀 Live Demo
+**[Insert Your Live Link Here - e.g., https://zriharrieeythedev.github.io/]**
 
 ---
 
-### 🌱 Current Focus
+### 🛠️ Built With
+This project is a testament to mastering the fundamentals of the web. I chose not to use frameworks to ensure maximum speed and custom creative control.
 
-* 🕹️ **Game Development:** Engineering modular systems in **Unity** (C#) & **Unreal** (C++).
-* 🤖 **AI Integration:** Developing intelligent agents and behavior trees to evolve gameplay.
-* 🎨 **3D Design:** High-fidelity modeling, PBR texturing, and rendering in **Blender**.
-* ⚙️ **Low-Level Logic:** Exploring memory management and systems programming with **C**.
+* **HTML5:** Semantic structure for SEO and accessibility.
+* **CSS3:** Custom layouts using **Flexbox** and **Grid**, featuring a dark-themed "Gamer" aesthetic.
+* **Vanilla JavaScript:** Interactive elements, scroll animations, and dynamic project filtering.
 
 ---
 
+### ✨ Key Features
+* **Responsive Design:** Fully optimized for Mobile, Tablet, and Desktop.
+* **Interactive UI:** Smooth transitions and hover effects that reflect my "vibecoding" philosophy.
+* **Game Dev Showcase:** Integrated galleries and video embeds for Unity and Unreal Engine projects.
+* **Contact Integration:** A functional contact section for professional inquiries.
+
+---
+
+### 📂 Project Structure
+```text
+├── index.html          # Main landing page
+├── assets/
+│   ├── css/            # Custom stylesheets
+│   ├── js/             # Interactive logic
+│   ├── images/         # Project screenshots and textures
+│   └── videos/         # Gameplay demos
+└── README.md           # You are here!
 ### 🚀 Featured Projects
 *🔭 Check out my pinned repositories to see my work with AI Navmesh, Custom Shaders, and 3D Assets.*
 
