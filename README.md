@@ -5,7 +5,7 @@ Welcome to the repository for my personal portfolio! This site is designed to sh
 ---
 
 ### 🚀 Live Demo
-**[Insert Your Live Link Here - e.g., https://zriharrieeythedev.github.io/]**
+**[(https://zriharrieeythedev.github.io/portfolio/)]**
 
 ---
 
