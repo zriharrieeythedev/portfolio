@@ -35,26 +35,5 @@ This project is a testament to mastering the fundamentals of the web. I chose no
 │   ├── images/         # Project screenshots and textures
 │   └── videos/         # Gameplay demos
 └── README.md           # You are here!
-### 🚀 Featured Projects
-*🔭 Check out my pinned repositories to see my work with AI Navmesh, Custom Shaders, and 3D Assets.*
 
----
-
-### 📊 My Stats
-<p align="left">
-<img src="https://github-readme-stats.vercel.app/api?username=zriharrieeythedev&show_icons=true&theme=radical" alt="zriharrieeythedev's GitHub stats" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=zriharrieeythedev&layout=compact&theme=radical" alt="Top Langs" />
-</p>
-
----
-
-### 📫 Get in Touch
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zriharrieeythedev)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sreeharis7306@gmail.com)
-
----
-
-<p align="center">
-  <i>"Turning logic into experience."</i>
 </p>
