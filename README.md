@@ -35,5 +35,3 @@ This project is a testament to mastering the fundamentals of the web. I chose no
 │   ├── images/         # Project screenshots and textures
 │   └── videos/         # Gameplay demos
 └── README.md           # You are here!
-
-</p>
