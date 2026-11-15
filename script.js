@@ -132,20 +132,107 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// -------- Form Submission Placeholder --------
+// -------- Contact form: open a pre-addressed email draft --------
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const btn = contactForm.querySelector('button');
-        const originalText = btn.textContent;
-        btn.textContent = 'Message Sent! ✓';
-        btn.style.background = '#00cc66';
-        contactForm.reset();
-        
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-        }, 3000);
+        if (!contactForm.reportValidity()) return;
+
+        const name = contactForm.querySelector('[name="name"]').value.trim();
+        const email = contactForm.querySelector('[name="email"]').value.trim();
+        const message = contactForm.querySelector('[name="message"]').value.trim();
+        const recipient = 'sreeharis7306@gmail.com';
+        const subject = `Portfolio message from ${name}`;
+        const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+        const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        const status = contactForm.querySelector('.form-status');
+        if (status) status.textContent = 'Your email app should open with the message ready. Review it and press Send there.';
+        window.location.href = mailto;
     });
 }
+
+
+// -------- Infinite horizontal project gallery --------
+(function initGalleryCarousel() {
+    const viewport = document.getElementById('gallery-viewport');
+    if (!viewport) return;
+    const counter = document.getElementById('gallery-count');
+    const sourceCards = [...viewport.querySelectorAll('.gallery-item')];
+    const count = sourceCards.length;
+    if (!count) return;
+
+    // Copies on both sides make the carousel loop continuously in either direction.
+    viewport.prepend(...sourceCards.map(card => card.cloneNode(true)));
+    viewport.append(...sourceCards.map(card => card.cloneNode(true)));
+    const cards = [...viewport.querySelectorAll('.gallery-item')];
+    let active = count + 1;
+    let settleTimer;
+
+    function update(index) {
+        active = Math.max(0, Math.min(cards.length - 1, index));
+        cards.forEach((card, i) => card.classList.toggle('is-active', i === active));
+        const current = (active % count) + 1;
+        counter.textContent = `${String(current).padStart(2, '0')} / ${String(count).padStart(2, '0')}`;
+    }
+    function center(card, smooth = true) {
+        if (smooth) {
+            card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } else {
+            viewport.style.scrollBehavior = 'auto';
+            viewport.style.scrollSnapType = 'none';
+            viewport.scrollLeft = card.offsetLeft + card.offsetWidth / 2 - viewport.clientWidth / 2;
+            requestAnimationFrame(() => {
+                viewport.style.scrollBehavior = '';
+                viewport.style.scrollSnapType = '';
+            });
+        }
+    }
+    function closestIndex() {
+        const centerX = viewport.getBoundingClientRect().left + viewport.clientWidth / 2;
+        let best = 0, bestDistance = Infinity;
+        cards.forEach((card, i) => {
+            const distance = Math.abs(card.getBoundingClientRect().left + card.offsetWidth / 2 - centerX);
+            if (distance < bestDistance) { best = i; bestDistance = distance; }
+        });
+        return best;
+    }
+    function go(index) {
+        const next = Math.max(0, Math.min(cards.length - 1, index));
+        update(next);
+        center(cards[next]);
+    }
+    document.getElementById('gallery-prev').addEventListener('click', () => go(active - 1));
+    document.getElementById('gallery-next').addEventListener('click', () => go(active + 1));
+    viewport.addEventListener('scroll', () => {
+        clearTimeout(settleTimer);
+        update(closestIndex());
+        settleTimer = setTimeout(() => {
+            let next = closestIndex();
+            if (next < count) next += count;
+            else if (next >= count * 2) next -= count;
+            if (next !== closestIndex()) center(cards[next], false);
+            update(next);
+        }, 130);
+    }, { passive: true });
+
+    let dragging = false, pointerX = 0, initialScroll = 0;
+    viewport.addEventListener('pointerdown', event => {
+        if (event.target.closest('a, button')) return;
+        dragging = true; pointerX = event.clientX; initialScroll = viewport.scrollLeft;
+        viewport.classList.add('is-dragging');
+        viewport.setPointerCapture(event.pointerId);
+    });
+    viewport.addEventListener('pointermove', event => {
+        if (dragging) viewport.scrollLeft = initialScroll - (event.clientX - pointerX);
+    });
+    const endDrag = () => { dragging = false; viewport.classList.remove('is-dragging'); };
+    viewport.addEventListener('pointerup', endDrag);
+    viewport.addEventListener('pointercancel', endDrag);
+    window.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft') go(active - 1);
+        if (event.key === 'ArrowRight') go(active + 1);
+    });
+    requestAnimationFrame(() => { update(active); center(cards[active], false); });
+})();
